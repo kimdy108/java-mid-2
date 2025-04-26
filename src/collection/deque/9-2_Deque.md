@@ -1,0 +1,42 @@
+# 9-2. Deque
+
+- Stack
+    - 후입 선출 (LIFO, Last In First Out)
+        - 나중에 넣은 것이 먼저 나온다.
+    - 기능
+        - `push()` : 스택에 값을 넣는 것
+        - `pop()` : 스택에서 값을 빼는 것
+        - `peek()` : 스택에서 처음 나올 값을 조회만 하는 것
+    - 주의
+        - 자바의 `Stack` 클래스는 내부에서 `Vector` 라는 자료 구조를 사용한다. → 지금은 사용하지 않고 하위 버전을 위해 존재함.
+        - 지금은 `Deque` 사용을 권장한다.
+- Queue
+    - Collection 프레임워크 - Queue
+        - Collection (interface) → Queue (interface) → Deque (interface) `공통` → ArrayDeque
+        - Collection (interface) → Queue (interface) → Deque (interface) `공통` → LinkedList
+    - 선입 선출 (FIFO, First In First Out)
+        - 먼저 넣은 것이 먼저 나온다.
+    - 기능
+        - `offer()` : 큐에 값을 넣는 것
+        - `poll()` : 큐에서 값을 빼는 것
+        - `peek()` : 큐에서 처음 나올 값을 조회만 하는 것
+- Deque
+    - Double Ended Queue 의 약자로 양쪽 끝에서 값을 추가하거나 삭제가 가능하다.
+    - 일반적인 큐와 스택의 기능을 모두 포함한다.
+    - 기능
+        - `offerFirst()` : 앞에 추가한다.
+        - `offerLast()` : 뒤에 추가한다.
+        - `pollFirst()` : 앞에서 꺼낸다.
+        - `pollLast()` : 뒤에서 꺼낸다.
+        - `peekFirst()` : 앞에 나올 값 조회
+        - `peekLast()` : 뒤에 나올 값 조회
+    - Deque의 구현체
+        - `ArrayDeque`, `LinkedList`
+        - 둘의 차이는 `ArrayList` vs `LinkedList` 의 차이와 비슷한데, 작동 원리가 하나는 배열을 하나는 동적 노드 링크를 사용한다.
+        - 현대 컴퓨터에서는 `ArrayList` 가 더 좋은 성능을 나타낸다.
+    - Deque와 Stack, Queue
+        - `Deque` 를 `Stack` 과 `Queue`로 사용하기 위한 메서드 이름까지 제공한다. → `push()`, `pop()`, `offer()`, `poll()` 이 제공된다.
+        - 자바의 `Stack` 클래스는 성능이 좋지 않고 하위 호환을 위해서 남겨져 있다.
+            - `Stack` 자료 구조가 필요하면 `Deque` 에 `ArrayDeque` 구현체를 사용하는게 좋다.
+        - `Deque` 인터페이스는 `Queue` 인터페이스의 자식이기 때문에, 단순히 `Queue` 의 기능만 필요하면 `Queue` 인터페이스를 사용하고 더 많은 기능이 필요하다면 `Deque` 인터페이스를 사용하면 된다.
+            - `Deque` 사용 시에는 `ArrayDeque` 구현체를 사용하는게 좋다.
